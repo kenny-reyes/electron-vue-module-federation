@@ -1,0 +1,47 @@
+{
+  "name": "module-federation-electron-vue",
+  "version": "1.0.0",
+  "description": "Minimal Reproducible Example - Module Federation Pinia Reactivity Bug",
+  "main": "./out/main/index.js",
+  "scripts": {
+    "install:deps": "yarn workspaces foreach --all install",
+    "dev": "concurrently \"yarn dev:remote\" \"electron-vite dev\" --names \"Remote,Host\" --prefix-colors \"cyan,magenta\"",
+    "dev:remote": "cd src/renderer/src/remote && yarn dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview"
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^2.0.0",
+    "@electron-toolkit/utils": "^2.0.1",
+    "pinia": "^2.3.1",
+    "vue": "^3.5.13",
+    "vue-i18n": "^9.10.2",
+    "vuetify": "^3.7.11"
+  },
+  "devDependencies": {
+    "@intlify/unplugin-vue-i18n": "^4.0.0",
+    "@module-federation/vite": "^1.8.0",
+    "@originjs/vite-plugin-commonjs": "^1.0.3",
+    "@types/node": "^18.19.9",
+    "@vitejs/plugin-vue": "^4.5.2",
+    "concurrently": "^8.2.2",
+    "electron": "^26.6.10",
+    "electron-builder": "^24.9.1",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-vite": "^2.1.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.4.11",
+    "vite-plugin-vuetify": "^2.0.4",
+    "vue": "^3.5.13",
+    "vue-tsc": "^1.8.27"
+  },
+  "volta": {
+    "node": "22.11.0",
+    "yarn": "4.9.4"
+  },
+  "private": true,
+  "workspaces": [
+    ".",
+    "src/renderer/src/remote"
+  ]
+}
